@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOY SHOP ONLINE - Terpercaya & Cepat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --warning: #f39c12;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0.8rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+        }
+        
+        .btn-outline:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        .btn-accent:hover {
+            background-color: #c0392b;
+        }
+        
+        .btn-success {
+            background-color: var(--success);
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background-color: #229954;
+        }
+        
+        .cart-count {
+            background-color: var(--accent);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 5px;
+        }
+        
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            min-height: 70vh;
+        }
+        
+        .page {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+        }
+        
+        /* Services */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .service-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 1rem 0;
+        }
+        
+        .service-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Forms */
+        .form-container {
+            max-width: 500px;
+            margin: 2rem auto;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .form-container h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+        
+        .social-login {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 1.5rem 0;
+        }
+        
+        .btn-social {
+            padding: 0.8rem;
+            border-radius: 4px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .btn-facebook {
+            background-color: #3b5998;
+            color: white;
+        }
+        
+        .btn-google {
+            background-color: #db4437;
+            color: white;
+        }
+        
+        .divider {
+            text-align: center;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        
+        .divider::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: #ddd;
+            z-index: 1;
+        }
+        
+        .divider span {
+            background-color: white;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 2;
+            color: #666;
+        }
+        
+        /* Cart */
+        .cart-items {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        
+        .cart-item-info h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .cart-item-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .quantity-btn {
+            background-color: #eee;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .quantity {
+            margin: 0 10px;
+        }
+        
+        .cart-total {
+            text-align: right;
+            margin-top: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        /* Profile */
+        .profile-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+        }
+        
+        .profile-sidebar {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .profile-sidebar ul {
+            list-style: none;
+        }
+        
+        .profile-sidebar li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .profile-sidebar a {
+            display: block;
+            padding: 0.8rem 1rem;
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .profile-sidebar a.active, .profile-sidebar a:hover {
+            background-color: rgba(52, 152, 219, 0.1);
+            color: var(--secondary);
+        }
+        
+        .profile-content {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        /* Payment */
+        .payment-info {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .bank-details {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        .qr-code {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        
+        .qr-code img {
+            max-width: 200px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 2rem 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .trust-badge {
+            background-color: var(--success);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 1rem;
+        }
+        
+        .alert {
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .alert-success {
+            background-color: rgba(39, 174, 96, 0.1);
+            border-left: 4px solid var(--success);
+            color: #155724;
+        }
+        
+        .alert-info {
+            background-color: rgba(52, 152, 219, 0.1);
+            border-left: 4px solid var(--secondary);
+            color: #0c5460;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .profile-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .services {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-store"></i>
+                <h1>BOY <span>SHOP ONLINE</span></h1>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#" id="nav-home"><i class="fas fa-home"></i> Laman Utama</a></li>
+                    <li><a href="#" id="nav-profile"><i class="fas fa-user"></i> Profile</a></li>
+                    <li><a href="#" id="nav-troli"><i class="fas fa-shopping-cart"></i> Troli <span class="cart-count" id="cart-count">0</span></a></li>
+                    <li class="auth-buttons">
+                        <button class="btn btn-outline" id="btn-login"><i class="fas fa-sign-in-alt"></i> Log In</button>
+                        <button class="btn btn-primary" id="btn-daftar"><i class="fas fa-user-plus"></i> Daftar</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Page -->
+        <section id="home-page" class="page active">
+            <div class="hero">
+                <h2>BOY SHOP ONLINE</h2>
+                <p>Website ini 100% ASLI daripada BOY</p>
+                <p><strong>Terpercaya & Cepat</strong> - Perkhidmatan berkualiti tinggi dengan kepuasan pelanggan sebagai keutamaan</p>
+                <div class="trust-badge">
+                    <i class="fas fa-shield-alt"></i> 100% ASLI & TERPERCAYA
+                </div>
+            </div>
+            
+            <div class="alert alert-info">
+                <p><strong>Untuk pertanyaan atau ingin membuat tempahan servis sewa nombor WhatsApp, sila klik pautan ini untuk menghubungi kami</strong></p>
+            </div>
+            
+            <h2 style="color: var(--primary); margin-bottom: 1.5rem;">Perkhidmatan Kami</h2>
+            
+            <div class="services">
+                <!-- Tempah Nombor -->
+                <div class="service-card">
+                    <h3>TEMPAH NOMBOR</h3>
+                    <div class="price">RM15/1 HARI</div>
+                    <p class="service-description">Tempah nombor WhatsApp untuk keperluan perniagaan anda. Perkhidmatan cepat dan efisien.</p>
+                    <button class="btn btn-primary btn-service" data-service="tempah-nombor">Tempah Sekarang</button>
+                </div>
+                
+                <!-- Unbanned WhatsApp -->
+                <div class="service-card">
+                    <h3>BUKA AKAUN WHATSAPP</h3>
+                    <div class="price">RM20 - RM35</div>
+                    <p class="service-description">Nombor WhatsApp Anda Terkunci? Kami bantu anda kembali online! Dapatkan semula akses WhatsApp perniagaan anda dengan pantas & mudah.</p>
+                    <button class="btn btn-accent btn-service" data-service="unbanned">Layanan Unbanned</button>
+                </div>
+                
+                <!-- Kedip Spam -->
+                <div class="service-card">
+                    <h3>KEDIP SPAM</h3>
+                    <div class="price">RM20</div>
+                    <p class="service-description">Perkhidmatan kedip spam berkualiti tinggi untuk pelbagai keperluan.</p>
+                    <button class="btn btn-success btn-service" data-service="kedip-spam">Pilih Perkhidmatan</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Registration Page -->
+        <section id="register-page" class="page">
+            <div class="form-container">
+                <h2>Daftar Akaun Baru</h2>
+                <p>Anda perlu mendaftar dahulu sebelum membeli</p>
+                
+                <div class="social-login">
+                    <button class="btn btn-google btn-social">
+                        <i class="fab fa-google"></i> Daftar dengan Google
+                    </button>
+                    <button class="btn btn-facebook btn-social">
+                        <i class="fab fa-facebook-f"></i> Daftar dengan Facebook
+                    </button>
+                </div>
+                
+                <div class="divider">
+                    <span>ATAU</span>
+                </div>
+                
+                <form id="register-form">
+                    <div class="form-group">
+                        <label for="reg-name">Nama Penuh</label>
+                        <input type="text" id="reg-name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reg-email">Email</label>
+                        <input type="email" id="reg-email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reg-phone">Nombor Telefon</label>
+                        <input type="tel" id="reg-phone" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reg-password">Kata Laluan</label>
+                        <input type="password" id="reg-password" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reg-confirm-password">Sahkan Kata Laluan</label>
+                        <input type="password" id="reg-confirm-password" class="form-control" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block" style="width: 100%;">Daftar Akaun</button>
+                </form>
+                
+                <p style="text-align: center; margin-top: 1.5rem;">
+                    Sudah ada akaun? <a href="#" id="link-to-login">Log Masuk di sini</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- Login Page -->
+        <section id="login-page" class="page">
+            <div class="form-container">
+                <h2>Log Masuk ke Akaun Anda</h2>
+                
+                <div class="social-login">
+                    <button class="btn btn-google btn-social" id="login-google">
+                        <i class="fab fa-google"></i> Log Masuk dengan Google
+                    </button>
+                    <button class="btn btn-facebook btn-social" id="login-facebook">
+                        <i class="fab fa-facebook-f"></i> Log Masuk dengan Facebook
+                    </button>
+                </div>
+                
+                <div class="divider">
+                    <span>ATAU</span>
+                </div>
+                
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="login-password">Kata Laluan</label>
+                        <input type="password" id="login-password" class="form-control" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block" style="width: 100%;">Log Masuk</button>
+                </form>
+                
+                <p style="text-align: center; margin-top: 1.5rem;">
+                    Tiada akaun? <a href="#" id="link-to-register">Daftar di sini</a>
+                </p>
+                
+                <!-- Developer Login (Hidden) -->
+                <div style="text-align: center; margin-top: 2rem; padding-top: 1rem; border-top: 1px dashed #ddd;">
+                    <p style="font-size: 0.9rem; color: #666;">Developer Access</p>
+                    <button class="btn btn-outline" id="developer-login" style="font-size: 0.8rem; padding: 0.3rem 0.8rem;">
+                        <i class="fas fa-code"></i> Developer Login
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Page -->
+        <section id="profile-page" class="page">
+            <div class="profile-container">
+                <div class="profile-sidebar">
+                    <h3>Profile</h3>
+                    <ul>
+                        <li><a href="#" class="profile-tab active" data-tab="profile-info"><i class="fas fa-user-circle"></i> Maklumat Profile</a></li>
+                        <li><a href="#" class="profile-tab" data-tab="profile-settings"><i class="fas fa-cog"></i> Tetapan</a></li>
+                        <li><a href="#" class="profile-tab" data-tab="profile-orders"><i class="fas fa-history"></i> Sejarah Tempahan</a></li>
+                    </ul>
+                </div>
+                
+                <div class="profile-content">
+                    <!-- Profile Info -->
+                    <div id="profile-info" class="profile-tab-content">
+                        <h2>Maklumat Profile</h2>
+                        <div class="form-container" style="box-shadow: none; padding: 0;">
+                            <form id="profile-form">
+                                <div class="form-group">
+                                    <label for="profile-name">Nama Penuh</label>
+                                    <input type="text" id="profile-name" class="form-control" value="Nama Pelanggan">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="profile-email">Email</label>
+                                    <input type="email" id="profile-email" class="form-control" value="pelanggan@example.com">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="profile-phone">Nombor Telefon</label>
+                                    <input type="tel" id="profile-phone" class="form-control" value="60123456789">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="profile-address">Alamat</label>
+                                    <textarea id="profile-address" class="form-control" rows="3"></textarea>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary">Kemaskini Profile</button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Profile Settings -->
+                    <div id="profile-settings" class="profile-tab-content hidden">
+                        <h2>Tetapan Akaun</h2>
+                        <div class="form-container" style="box-shadow: none; padding: 0;">
+                            <form id="settings-form">
+                                <div class="form-group">
+                                    <label for="settings-password">Kata Laluan Baru</label>
+                                    <input type="password" id="settings-password" class="form-control">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="settings-confirm-password">Sahkan Kata Laluan Baru</label>
+                                    <input type="password" id="settings-confirm-password" class="form-control">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="settings-notifications">Pemberitahuan Email</label>
+                                    <select id="settings-notifications" class="form-control">
+                                        <option value="yes">Ya</option>
+                                        <option value="no">Tidak</option>
+                                    </select>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary">Simpan Tetapan</button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Profile Orders -->
+                    <div id="profile-orders" class="profile-tab-content hidden">
+                        <h2>Sejarah Tempahan</h2>
+                        <div class="cart-items">
+                            <p>Tiada tempahan lagi. Tempah perkhidmatan kami sekarang!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Troli Page -->
+        <section id="troli-page" class="page">
+            <h2>Troli Belian Anda</h2>
+            
+            <div class="cart-items" id="cart-items-container">
+                <!-- Cart items will be dynamically added here -->
+                <p id="empty-cart-message">Troli anda kosong. Tambah perkhidmatan dari laman utama.</p>
+            </div>
+            
+            <div class="cart-total hidden" id="cart-total">
+                Jumlah: RM<span id="total-amount">0.00</span>
+            </div>
+            
+            <div style="text-align: right; margin-top: 2rem;">
+                <button class="btn btn-primary hidden" id="checkout-btn">Teruskan ke Bayaran</button>
+                <button class="btn btn-outline" id="continue-shopping">Teruskan Membeli</button>
+            </div>
+        </section>
+
+        <!-- Tempah Nombor Page -->
+        <section id="tempah-nombor-page" class="page">
+            <div class="form-container">
+                <h2>TEMPAH NOMBOR</h2>
+                <p class="price">RM15/1 HARI</p>
+                
+                <form id="tempah-form">
+                    <div class="form-group">
+                        <label for="tempah-hari">Tempoh Sewa (Hari)</label>
+                        <input type="number" id="tempah-hari" class="form-control" min="1" value="1" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tempah-kegunaan">Kegunaan Nombor</label>
+                        <select id="tempah-kegunaan" class="form-control" required>
+                            <option value="perniagaan">Perniagaan</option>
+                            <option value="peribadi">Peribadi</option>
+                            <option value="lain">Lain-lain</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tempah-nota">Nota Khas (Jika Ada)</label>
+                        <textarea id="tempah-nota" class="form-control" rows="3"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block" style="width: 100%;">Tambahkan ke Troli</button>
+                </form>
+                
+                <div class="alert alert-info" style="margin-top: 1.5rem;">
+                    <p><strong>Untuk pertanyaan atau ingin membuat tempahan servis sewa nombor WhatsApp, sila klik pautan ini untuk menghubungi kami</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Unbanned Page -->
+        <section id="unbanned-page" class="page">
+            <div class="hero" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">
+                <h2>BUKA AKAUN WHATSAPP</h2>
+                <p>Nombor WhatsApp Anda Terkunci? Kami Bantu Anda Kembali Online!</p>
+                <p>Dapatkan Semula Akses WhatsApp Perniagaan Anda Dengan Pantas & Mudah.</p>
+            </div>
+            
+            <div class="alert alert-info">
+                <p><strong>Kekal Berhubung dengan Pelanggan! Servis Pantas Kami Pulihkan WhatsApp Anda yang Disekat</strong></p>
+            </div>
+            
+            <div class="alert alert-success">
+                <p><strong>WhatsApp Terkena Ban? Kami Sediakan Solusi Profesional untuk Unbanned Akaun WhatsApp Bisnes Anda, Proses Cepat, Hasil Terjamin</strong></p>
+            </div>
+            
+            <h2 style="color: var(--primary); margin: 2rem 0 1.5rem;">Pilih Perkhidmatan Unbanned</h2>
+            
+            <div class="services">
+                <div class="service-card">
+                    <h3>KEDIP SPAM</h3>
+                    <div class="price">RM20</div>
+                    <p class="service-description">Perkhidmatan kedip spam berkualiti tinggi.</p>
+                    <button class="btn btn-primary btn-add-cart" data-service="Kedip Spam" data-price="20">Tambahkan ke Troli</button>
+                </div>
+                
+                <div class="service-card">
+                    <h3>KEDIP PERMANENT EASY</h3>
+                    <div class="price">RM35</div>
+                    <p class="service-description">Penyelesaian kedip permanent yang mudah dan berkesan.</p>
+                    <button class="btn btn-primary btn-add-cart" data-service="Kedip Permanent Easy" data-price="35">Tambahkan ke Troli</button>
+                </div>
+                
+                <div class="service-card">
+                    <h3>IKUT PADA JAM</h3>
+                    <div class="price">RM15</div>
+                    <p class="service-description">Perkhidmatan ikut pada jam (2-12 jam).</p>
+                    <button class="btn btn-primary btn-add-cart" data-service="Ikut Pada Jam" data-price="15">Tambahkan ke Troli</button>
+                </div>
+            </div>
+            
+            <!-- Payment Information -->
+            <div class="payment-info">
+                <h3>Maklumat Pembayaran</h3>
+                <p>Selepas membuat tempahan, sila buat pembayaran ke akaun berikut:</p>
+                
+                <div class="bank-details">
+                    <p><strong>Akaun Bank:</strong> 100807472080</p>
+                    <p><strong>Nama Bank:</strong> (Sila isi nama bank anda)</p>
+                    <p><strong>Jumlah:</strong> RM<span id="payment-amount">0.00</span></p>
+                </div>
+                
+                <div class="qr-code">
+                    <p><strong>QR Bank:</strong></p>
+                    <div style="background-color: white; padding: 15px; display: inline-block; border: 1px solid #ddd;">
+                        <div style="width: 150px; height: 150px; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-qrcode" style="font-size: 4rem; color: #666;"></i>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">QR Code: https://qrco.de/bgXav3</p>
+                    <p style="font-size: 0.9rem; color: #666;">(Sila Screenshoot semula dan scan)</p>
+                </div>
+                
+                <div class="alert alert-success">
+                    <p><strong>NOTE: SELEPAS MEMBUAT BAYARAN SILA TUNJUKKAN BUKTI</strong></p>
+                    <p>Hantar bukti pembayaran kepada kami melalui WhatsApp, Telegram atau email.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Payment Page -->
+        <section id="payment-page" class="page">
+            <div class="form-container">
+                <h2>Maklumat Pembayaran</h2>
+                
+                <div class="alert alert-info">
+                    <p>Jumlah yang perlu dibayar: <strong>RM<span id="payment-total">0.00</span></strong></p>
+                </div>
+                
+                <div class="bank-details">
+                    <h3>Bayaran ke Akaun Bank</h3>
+                    <p><strong>Akaun Bank:</strong> 100807472080</p>
+                    <p><strong>Nama Bank:</strong> (Sila isi nama bank anda)</p>
+                </div>
+                
+                <div class="qr-code">
+                    <p><strong>QR Bank:</strong></p>
+                    <div style="background-color: white; padding: 15px; display: inline-block; border: 1px solid #ddd;">
+                        <div style="width: 150px; height: 150px; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-qrcode" style="font-size: 4rem; color: #666;"></i>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">QR Code: https://qrco.de/bgXav3</p>
+                    <p style="font-size: 0.9rem; color: #666;">(Sila Screenshoot semula dan scan)</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="payment-proof">Muat Naik Bukti Bayaran</label>
+                    <input type="file" id="payment-proof" class="form-control" accept="image/*,.pdf">
+                </div>
+                
+                <div class="form-group">
+                    <label for="payment-reference">Nombor Rujukan Bayaran (Jika Ada)</label>
+                    <input type="text" id="payment-reference" class="form-control">
+                </div>
+                
+                <button class="btn btn-success btn-block" style="width: 100%; margin-top: 1.5rem;" id="submit-payment">
+                    <i class="fas fa-check-circle"></i> Hantar Bukti Bayaran
+                </button>
+                
+                <div class="alert alert-success" style="margin-top: 1.5rem;">
+                    <p><strong>NOTE: SELEPAS MEMBUAT BAYARAN SILA TUNJUKKAN BUKTI</strong></p>
+                    <p>Bukti bayaran akan diproses dalam masa 24 jam.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>BOY SHOP ONLINE</h3>
+                <p>Website ini 100% ASLI daripada BOY</p>
+                <p>Terpercaya & Cepat</p>
+                <div class="trust-badge">
+                    <i class="fas fa-shield-alt"></i> 100% ASLI & TERPERCAYA
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Perkhidmatan</h3>
+                <ul>
+                    <li><a href="#" class="service-link" data-service="tempah-nombor">Tempah Nombor</a></li>
+                    <li><a href="#" class="service-link" data-service="unbanned">Buka Akaun WhatsApp</a></li>
+                    <li><a href="#" class="service-link" data-service="kedip-spam">Kedip Spam</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Hubungi Kami</h3>
+                <ul>
+                    <li><i class="fas fa-user"></i> DEVELOPER: @boyjutawan</li>
+                    <li><i class="fas fa-phone"></i> Contact: 601135041561</li>
+                    <li><i class="fas fa-envelope"></i> Email: kechixxdarwish@gmail.com</li>
+                    <li><i class="fab fa-telegram"></i> Bot telegram: @Chatboysupport_bot</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Maklumat</h3>
+                <p>Untuk pertanyaan atau ingin membuat tempahan servis sewa nombor WhatsApp, sila hubungi kami melalui maklumat di sebelah.</p>
+                <p>Website ini diuruskan oleh BOY SHOP ONLINE - perkhidmatan terpercaya sejak 2023.</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 BOY SHOP ONLINE. Hak cipta terpelihara. Website ini 100% ASLI daripada BOY.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Application State
+        const state = {
+            isLoggedIn: false,
+            currentUser: null,
+            cart: [],
+            currentPage: 'home-page'
+        };
+        
+        // Developer account
+        const developerAccount = {
+            email: 'Kechixxdarwish@gmail.com',
+            password: 'daalyalock'
+        };
+        
+        // DOM Elements
+        const pages = {
+            home: document.getElementById('home-page'),
+            register: document.getElementById('register-page'),
+            login: document.getElementById('login-page'),
+            profile: document.getElementById('profile-page'),
+            troli: document.getElementById('troli-page'),
+            tempahNombor: document.getElementById('tempah-nombor-page'),
+            unbanned: document.getElementById('unbanned-page'),
+            payment: document.getElementById('payment-page')
+        };
+        
+        // Navigation elements
+        const navHome = document.getElementById('nav-home');
+        const navProfile = document.getElementById('nav-profile');
+        const navTroli = document.getElementById('nav-troli');
+        const btnLogin = document.getElementById('btn-login');
+        const btnDaftar = document.getElementById('btn-daftar');
+        const linkToLogin = document.getElementById('link-to-login');
+        const linkToRegister = document.getElementById('link-to-register');
+        const developerLogin = document.getElementById('developer-login');
+        
+        // Initialize the application
+        function initApp() {
+            // Check if user is already logged in from localStorage
+            const savedUser = localStorage.getItem('currentUser');
+            const savedCart = localStorage.getItem('cart');
+            
+            if (savedUser) {
+                state.currentUser = JSON.parse(savedUser);
+                state.isLoggedIn = true;
+                updateAuthUI();
+            }
+            
+            if (savedCart) {
+                state.cart = JSON.parse(savedCart);
+                updateCartUI();
+            }
+            
+            // Set up event listeners
+            setupEventListeners();
+            
+            // Show home page by default
+            showPage('home-page');
+        }
+        
+        // Set up all event listeners
+        function setupEventListeners() {
+            // Navigation
+            navHome.addEventListener('click', () => showPage('home-page'));
+            navProfile.addEventListener('click', handleProfileClick);
+            navTroli.addEventListener('click', handleTroliClick);
+            btnLogin.addEventListener('click', () => showPage('login-page'));
+            btnDaftar.addEventListener('click', () => showPage('register-page'));
+            linkToLogin.addEventListener('click', () => showPage('login-page'));
+            linkToRegister.addEventListener('click', () => showPage('register-page'));
+            
+            // Developer login
+            developerLogin.addEventListener('click', () => {
+                document.getElementById('login-email').value = developerAccount.email;
+                document.getElementById('login-password').value = developerAccount.password;
+                
+                // Auto submit after a short delay
+                setTimeout(() => {
+                    document.getElementById('login-form').dispatchEvent(new Event('submit'));
+                }, 500);
+            });
+            
+            // Forms
+            document.getElementById('register-form').addEventListener('submit', handleRegister);
+            document.getElementById('login-form').addEventListener('submit', handleLogin);
+            document.getElementById('profile-form').addEventListener('submit', handleProfileUpdate);
+            document.getElementById('settings-form').addEventListener('submit', handleSettingsUpdate);
+            document.getElementById('tempah-form').addEventListener('submit', handleTempahNombor);
+            
+            // Service buttons
+            document.querySelectorAll('.btn-service').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const service = this.getAttribute('data-service');
+                    if (service === 'tempah-nombor') {
+                        showPage('tempah-nombor-page');
+                    } else if (service === 'unbanned') {
+                        showPage('unbanned-page');
+                    } else if (service === 'kedip-spam') {
+                        addToCart('Kedip Spam', 20);
+                        showPage('troli-page');
+                    }
+                });
+            });
+            
+            // Add to cart buttons on unbanned page
+            document.querySelectorAll('.btn-add-cart').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const service = this.getAttribute('data-service');
+                    const price = parseInt(this.getAttribute('data-price'));
+                    addToCart(service, price);
+                    showPage('troli-page');
+                });
+            });
+            
+            // Profile tabs
+            document.querySelectorAll('.profile-tab').forEach(tab => {
+                tab.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Update active tab
+                    document.querySelectorAll('.profile-tab').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show corresponding content
+                    document.querySelectorAll('.profile-tab-content').forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                    document.getElementById(tabId).classList.remove('hidden');
+                });
+            });
+            
+            // Social login buttons
+            document.getElementById('login-google').addEventListener('click', () => {
+                alert('Log masuk dengan Google akan diproses. Untuk demo ini, sila gunakan borang log masuk biasa.');
+            });
+            
+            document.getElementById('login-facebook').addEventListener('click', () => {
+                alert('Log masuk dengan Facebook akan diproses. Untuk demo ini, sila gunakan borang log masuk biasa.');
+            });
+            
+            // Cart and checkout
+            document.getElementById('checkout-btn').addEventListener('click', () => {
+                showPage('payment-page');
+                updatePaymentTotal();
+            });
+            
+            document.getElementById('continue-shopping').addEventListener('click', () => {
+                showPage('home-page');
+            });
+            
+            document.getElementById('submit-payment').addEventListener('click', () => {
+                alert('Terima kasih! Bukti bayaran anda telah dihantar. Kami akan menghubungi anda secepat mungkin untuk pengesahan.');
+                // Clear cart after payment
+                state.cart = [];
+                localStorage.removeItem('cart');
+                updateCartUI();
+                showPage('home-page');
+            });
+            
+            // Service links in footer
+            document.querySelectorAll('.service-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const service = this.getAttribute('data-service');
+                    if (service === 'tempah-nombor') {
+                        showPage('tempah-nombor-page');
+                    } else if (service === 'unbanned') {
+                        showPage('unbanned-page');
+                    } else if (service === 'kedip-spam') {
+                        addToCart('Kedip Spam', 20);
+                        showPage('troli-page');
+                    }
+                });
+            });
+        }
+        
+        // Show a specific page and hide others
+        function showPage(pageId) {
+            // Update state
+            state.currentPage = pageId;
+            
+            // Hide all pages
+            Object.values(pages).forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show requested page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Special handling for profile page
+            if (pageId === 'profile-page' && !state.isLoggedIn) {
+                alert('Anda perlu log masuk dahulu untuk mengakses halaman profile.');
+                showPage('login-page');
+                return;
+            }
+            
+            // Special handling for troli page
+            if (pageId === 'troli-page') {
+                renderCartItems();
+            }
+            
+            // Update navigation UI
+            updateNavigationUI();
+        }
+        
+        // Handle profile click
+        function handleProfileClick() {
+            if (state.isLoggedIn) {
+                showPage('profile-page');
+            } else {
+                showPage('login-page');
+            }
+        }
+        
+        // Handle troli click
+        function handleTroliClick() {
+            showPage('troli-page');
+        }
+        
+        // Update navigation UI based on login state
+        function updateNavigationUI() {
+            // Update active nav link
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Mark current page in navigation
+            if (state.currentPage === 'home-page') {
+                navHome.classList.add('active');
+            } else if (state.currentPage === 'profile-page') {
+                navProfile.classList.add('active');
+            } else if (state.currentPage === 'troli-page') {
+                navTroli.classList.add('active');
+            }
+        }
+        
+        // Update authentication UI
+        function updateAuthUI() {
+            if (state.isLoggedIn) {
+                btnLogin.innerHTML = '<i class="fas fa-sign-out-alt"></i> Log Keluar';
+                btnLogin.classList.remove('btn-outline');
+                btnLogin.classList.add('btn-accent');
+                btnLogin.removeEventListener('click', () => showPage('login-page'));
+                btnLogin.addEventListener('click', handleLogout);
+                
+                btnDaftar.innerHTML = `<i class="fas fa-user"></i> ${state.currentUser.name.split(' ')[0]}`;
+                btnDaftar.removeEventListener('click', () => showPage('register-page'));
+                btnDaftar.addEventListener('click', () => showPage('profile-page'));
+            } else {
+                btnLogin.innerHTML = '<i class="fas fa-sign-in-alt"></i> Log In';
+                btnLogin.classList.remove('btn-accent');
+                btnLogin.classList.add('btn-outline');
+                btnLogin.removeEventListener('click', handleLogout);
+                btnLogin.addEventListener('click', () => showPage('login-page'));
+                
+                btnDaftar.innerHTML = '<i class="fas fa-user-plus"></i> Daftar';
+                btnDaftar.removeEventListener('click', () => showPage('profile-page'));
+                btnDaftar.addEventListener('click', () => showPage('register-page'));
+            }
+        }
+        
+        // Handle user registration
+        function handleRegister(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('reg-name').value;
+            const email = document.getElementById('reg-email').value;
+            const phone = document.getElementById('reg-phone').value;
+            const password = document.getElementById('reg-password').value;
+            const confirmPassword = document.getElementById('reg-confirm-password').value;
+            
+            // Basic validation
+            if (password !== confirmPassword) {
+                alert('Kata laluan tidak sepadan. Sila cuba lagi.');
+                return;
+            }
+            
+            if (password.length < 6) {
+                alert('Kata laluan mesti sekurang-kurangnya 6 aksara.');
+                return;
+            }
+            
+            // Create user object
+            const user = {
+                id: Date.now(),
+                name,
+                email,
+                phone,
+                password // In real app, this should be hashed
+            };
+            
+            // Save user to localStorage
+            localStorage.setItem('currentUser', JSON.stringify(user));
+            
+            // Update state
+            state.currentUser = user;
+            state.isLoggedIn = true;
+            
+            // Update UI
+            updateAuthUI();
+            
+            // Show success message and redirect to home
+            alert('Pendaftaran berjaya! Anda kini telah log masuk.');
+            showPage('home-page');
+            
+            // Clear form
+            e.target.reset();
+        }
+        
+        // Handle user login
+        function handleLogin(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            
+            // Check for developer account
+            if (email === developerAccount.email && password === developerAccount.password) {
+                state.currentUser = {
+                    id: 'developer',
+                    name: 'Developer Boy',
+                    email: developerAccount.email,
+                    phone: '601135041561',
+                    isDeveloper: true
+                };
+                state.isLoggedIn = true;
+                
+                localStorage.setItem('currentUser', JSON.stringify(state.currentUser));
+                updateAuthUI();
+                
+                alert('Log masuk sebagai Developer berjaya!');
+                showPage('home-page');
+                e.target.reset();
+                return;
+            }
+            
+            // In a real app, you would validate against a server/database
+            // For this demo, we'll check if user exists in localStorage
+            const savedUser = localStorage.getItem('currentUser');
+            
+            if (savedUser) {
+                const user = JSON.parse(savedUser);
+                
+                // Check credentials
+                if (user.email === email && user.password === password) {
+                    state.currentUser = user;
+                    state.isLoggedIn = true;
+                    
+                    updateAuthUI();
+                    
+                    alert('Log masuk berjaya!');
+                    showPage('home-page');
+                    e.target.reset();
+                    return;
+                }
+            }
+            
+            // If we get here, credentials are invalid
+            alert('Email atau kata laluan tidak betul. Sila cuba lagi.');
+        }
+        
+        // Handle user logout
+        function handleLogout() {
+            state.isLoggedIn = false;
+            state.currentUser = null;
+            localStorage.removeItem('currentUser');
+            
+            updateAuthUI();
+            
+            alert('Anda telah log keluar.');
+            showPage('home-page');
+        }
+        
+        // Handle profile update
+        function handleProfileUpdate(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('profile-name').value;
+            const email = document.getElementById('profile-email').value;
+            const phone = document.getElementById('profile-phone').value;
+            const address = document.getElementById('profile-address').value;
+            
+            // Update user object
+            state.currentUser.name = name;
+            state.currentUser.email = email;
+            state.currentUser.phone = phone;
+            state.currentUser.address = address;
+            
+            // Save to localStorage
+            localStorage.setItem('currentUser', JSON.stringify(state.currentUser));
+            
+            alert('Profile telah dikemaskini!');
+        }
+        
+        // Handle settings update
+        function handleSettingsUpdate(e) {
+            e.preventDefault();
+            
+            const password = document.getElementById('settings-password').value;
+            const confirmPassword = document.getElementById('settings-confirm-password').value;
+            
+            if (password && password !== confirmPassword) {
+                alert('Kata laluan baru tidak sepadan. Sila cuba lagi.');
+                return;
+            }
+            
+            if (password) {
+                state.currentUser.password = password;
+                localStorage.setItem('currentUser', JSON.stringify(state.currentUser));
+            }
+            
+            alert('Tetapan telah dikemaskini!');
+            e.target.reset();
+        }
+        
+        // Handle tempah nombor form
+        function handleTempahNombor(e) {
+            e.preventDefault();
+            
+            const hari = parseInt(document.getElementById('tempah-hari').value);
+            const kegunaan = document.getElementById('tempah-kegunaan').value;
+            const nota = document.getElementById('tempah-nota').value;
+            
+            const price = hari * 15;
+            const serviceName = `Tempah Nombor (${hari} hari) - ${kegunaan}`;
+            
+            addToCart(serviceName, price, { hari, kegunaan, nota });
+            
+            alert('Perkhidmatan telah ditambah ke troli!');
+            showPage('troli-page');
+            e.target.reset();
+        }
+        
+        // Add item to cart
+        function addToCart(serviceName, price, details = {}) {
+            const cartItem = {
+                id: Date.now(),
+                name: serviceName,
+                price: price,
+                quantity: 1,
+                details: details
+            };
+            
+            // Check if item already exists in cart
+            const existingItemIndex = state.cart.findIndex(item => item.name === serviceName);
+            
+            if (existingItemIndex !== -1) {
+                // Update quantity if item already exists
+                state.cart[existingItemIndex].quantity += 1;
+            } else {
+                // Add new item to cart
+                state.cart.push(cartItem);
+            }
+            
+            // Save cart to localStorage
+            localStorage.setItem('cart', JSON.stringify(state.cart));
+            
+            // Update cart UI
+            updateCartUI();
+        }
+        
+        // Update cart UI (count)
+        function updateCartUI() {
+            const cartCount = document.getElementById('cart-count');
+            const totalItems = state.cart.reduce((total, item) => total + item.quantity, 0);
+            
+            cartCount.textContent = totalItems;
+            
+            // Show/hide cart count
+            cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
+        }
+        
+        // Render cart items on troli page
+        function renderCartItems() {
+            const container = document.getElementById('cart-items-container');
+            const emptyCartMessage = document.getElementById('empty-cart-message');
+            const cartTotal = document.getElementById('cart-total');
+            const checkoutBtn = document.getElementById('checkout-btn');
+            const totalAmount = document.getElementById('total-amount');
+            
+            if (state.cart.length === 0) {
+                emptyCartMessage.classList.remove('hidden');
+                container.innerHTML = '<p id="empty-cart-message">Troli anda kosong. Tambah perkhidmatan dari laman utama.</p>';
+                cartTotal.classList.add('hidden');
+                checkoutBtn.classList.add('hidden');
+                return;
+            }
+            
+            emptyCartMessage.classList.add('hidden');
+            cartTotal.classList.remove('hidden');
+            checkoutBtn.classList.remove('hidden');
+            
+            let html = '';
+            let total = 0;
+            
+            state.cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                html += `
+                <div class="cart-item" data-id="${item.id}">
+                    <div class="cart-item-info">
+                        <h4>${item.name}</h4>
+                        <p>RM${item.price.toFixed(2)} each</p>
+                    </div>
+                    <div class="cart-item-actions">
+                        <div style="display: flex; align-items: center;">
+                            <button class="quantity-btn decrease-btn" data-id="${item.id}">-</button>
+                            <span class="quantity">${item.quantity}</span>
+                            <button class="quantity-btn increase-btn" data-id="${item.id}">+</button>
+                        </div>
+                        <div style="margin-left: 1rem; font-weight: 600;">
+                            RM${itemTotal.toFixed(2)}
+                        </div>
+                        <button class="btn btn-outline remove-btn" data-id="${item.id}" style="margin-left: 1rem; padding: 0.3rem 0.8rem;">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+            totalAmount.textContent = total.toFixed(2);
+            
+            // Add event listeners to cart buttons
+            document.querySelectorAll('.decrease-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const itemId = parseInt(this.getAttribute('data-id'));
+                    updateCartItemQuantity(itemId, -1);
+                });
+            });
+            
+            document.querySelectorAll('.increase-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const itemId = parseInt(this.getAttribute('data-id'));
+                    updateCartItemQuantity(itemId, 1);
+                });
+            });
+            
+            document.querySelectorAll('.remove-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const itemId = parseInt(this.getAttribute('data-id'));
+                    removeCartItem(itemId);
+                });
+            });
+        }
+        
+        // Update cart item quantity
+        function updateCartItemQuantity(itemId, change) {
+            const itemIndex = state.cart.findIndex(item => item.id === itemId);
+            
+            if (itemIndex !== -1) {
+                state.cart[itemIndex].quantity += change;
+                
+                // Remove item if quantity is 0 or less
+                if (state.cart[itemIndex].quantity <= 0) {
+                    state.cart.splice(itemIndex, 1);
+                }
+                
+                // Save cart to localStorage
+                localStorage.setItem('cart', JSON.stringify(state.cart));
+                
+                // Update UI
+                updateCartUI();
+                renderCartItems();
+            }
+        }
+        
+        // Remove item from cart
+        function removeCartItem(itemId) {
+            state.cart = state.cart.filter(item => item.id !== itemId);
+            
+            // Save cart to localStorage
+            localStorage.setItem('cart', JSON.stringify(state.cart));
+            
+            // Update UI
+            updateCartUI();
+            renderCartItems();
+        }
+        
+        // Update payment total
+        function updatePaymentTotal() {
+            const total = state.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            document.getElementById('payment-total').textContent = total.toFixed(2);
+        }
+        
+        // Initialize the app when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+</html>
